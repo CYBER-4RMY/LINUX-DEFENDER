@@ -1193,7 +1193,7 @@ traffic_anony() {
                 echo -e "\033[1;32m"
                 echo "<<==={TOR-MODE-ON}===>>"
                 echo -e "\033[0m"  # Reset color
-                sudo torctl start 
+                sudo systemctl start tor 
                 log_message "INFO" "All network traffic is routing through Tor."
                 send_alert "Tor network is started now."
                 ;;
@@ -1201,23 +1201,15 @@ traffic_anony() {
                 echo -e "\033[1;32m"
                 echo "<<==={TOR-CHANGED-IP}===>>"
                 echo -e "\033[0m"  # Reset color
-                sudo torctl chngid
+                sudo systemctl restart tor
                 log_message "INFO" "TOR changed IP address for ARCH."
                 send_alert "Your IP address changed now."
-                ;;
-            "achnmc")
-                echo -e "\033[1;32m"
-                echo "<<==={TOR-CHANGED-MAC}===>>"
-                echo -e "\033[0m"  # Reset color
-                sudo torctl chngmac
-                log_message "INFO" "TOR changed MAC address for ARCH."
-                send_alert "Your MAC address changed now."
                 ;;
             "astop")
                 echo -e "\033[1;32m"
                 echo "<<==={TOR-MODE-OFF}===>>"
                 echo -e "\033[0m"  # Reset color
-                sudo torctl stop 
+                sudo systemctl stop tor
                 log_message "INFO" "All network traffic is routing Normally."
                 send_alert "Tor network is stop"
                 ;;
@@ -1250,7 +1242,6 @@ traffic_anony() {
                 echo "> ARCH-TOR:"
                 echo " 1. astart  - For Arch, to start Tor tunnel."
                 echo " 2. achnid  - For Arch, to change IP address of TOR."
-                echo " 3. achnmc  - For Arch, to change MAC address of TOR."
                 echo " 4. astop   - For Arch, to stop TOR tunnel."
                 echo -e "\033[0m"  # Reset color
                 ;;
