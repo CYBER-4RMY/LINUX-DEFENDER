@@ -1086,7 +1086,7 @@ chat_ai() {
                 echo " 5. aisim    - TGPT in simple mode."
                 echo " 6. aidev    - TGPT in Devloper mode."
                 echo " 7. aichat   - TGPT in normal chat mode."
-                echo " 8. aindeb   - TGPT in interactive devloper mode."
+                echo " 8. aindev    - TGPT in interactive devloper mode."
                 echo " 9. aishell  - TGPT for ask command or execute command mode."
                 echo "   "
                 echo "> INSTALL TGPT"
